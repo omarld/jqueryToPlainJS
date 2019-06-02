@@ -3,6 +3,11 @@
 
 var utils = {
     onLoadCallBack: function(){
+        document.querySelectorAll('pre code').forEach((block) => {
+            block.setAttribute("class", "javascript");
+            hljs.highlightBlock(block);
+        });
+
         console.log("window loaded...");
     
         //1) $('#content').html()
