@@ -1,4 +1,41 @@
 
+/*----------------------------------------------------------*/
+/*Basic Setup*/
+/*----------------------------------------------------------*/
+/*remove all margins and padding*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    word-spacing: .05em;
+    padding: 10px 3%;
+}
+
+h1,
+h2,
+h3 {
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+ul {
+    padding: 10px 25px;
+}
+
+
+/*
+ Section 
+*/
 section {
     border: 0 solid black;
     border-top-width: 1px;
