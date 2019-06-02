@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Jquery to Plain JS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <section>
+        <h2>$(document).ready(..)</h2>
+        <h3>Description</h3>
+        <span>Check when document has been loaded.</span>
+        <div class="results">
+            <pre><code>
+                if(document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)){
+                    // call your functions here
+                } else {
+                    // call your functions here
+                }
+            </code></pre>
+        </div>
+    </section>
+    <section id="html">
+        <h2>$(...).HTML()</h2>
+        <div id="html-content">
+            <h4 class="content-heading">Content</h4>
+            <span>Snippet to copy below:</span>
+            <p>Who is afraid of the bats?!</p>
+        </div>
+        <div id="results">
+            <h4 class="content-heading">Results</h4>
+            <p></p>
+        </div>
+
+        <h3>PlainJS Code</h3>
+        <div>
+            <pre><code class="language-javascript">
+                var content = document.querySelector("div#content p").innerHTML;
+                document.querySelector("div#results p").innerHTML = content;
+            </code></pre>
+        </div>
+        
+    </section>
+    
+    <section id="append">
+        <h2>$(...).Append</h2>
+        <div id="append-content">
+            <p>Append after me.</p>
+        </div>
+        <div>
+            <pre><code class="language-javascript">
+                var appendEl = document.querySelector("div#append");
+                var childEl = document.createElement("div");
+                childEl.innerHTML = "&ltp&gtNew &ltstrong&gtchild&lt/strong&gt Content!&lt/p&gt"
+            
+                //appending
+                appendEl.appendChild(childEl);
+            </code></pre>
+        </div>
+    </section>
+
+    <section id="prepend">
+        <h2>$(...).prepend()</h2>
+        <div id="prepend-content">
+            <p>Exising content in body!</p>
+        </div>
+        <div>
+            <pre><code class="language-javascript">
+                var prependEl = document.getElementById("prepend-content");
+
+                var newDiv = document.createElement("div");
+                var textNode = document.createTextNode("new content to insert!");
+                newDiv.appendChild(textNode);
+            
+                prependEl.insertBefore(newDiv, prependEl.firstChild);
+            </code></pre>
+        </div>
+    </section>
+
+    <section id="empty">
+        <h2>$(...).empty()</h2>
+        <div id="empty-content">
+            <p>Empty me please!</p>
+        </div>
+        <div>
+            <button id="clear-me" onclick="utils.emptyContent()">Empty Content</button>
+            <button id="clear-me" onclick="utils.resetEmptyContent()">Reset</button>
+            <p>NOTE: add remove listener</p>
+        </div>
+        <div>
+            <pre><code class="language-javascript">
+                    var contentEl = document.getElementById("empty-content");
+                    console.log("empty content");
+                    contentEl.innerHtml = "";
+                    while(contentEl.firstChild){
+                        contentEl.removeChild(contentEl.firstChild);
+                    }
+            </code></pre>
+        </div>
+    </section>
+
+    <section id="attr">
+        <h2>$(...).Attr(name)</h2>
+        <div id="attributes" class="content">
+            <input id="check1" type="checkbox" checked="checked">
+            <label for="check1">Check me</label>
+        </div>
+        <button onclick="utils.setChecked()">Toggle</button>
+        <div class="results"></div>
+        <div>
+            <pre><code class="language-javascript">
+                var el = document.querySelector("div#attributes input#check1");
+                var checkedAttr = el.getAttribute("checked");
+                var asObj = el.getAttributeNode("checked");
+            
+                var resultsEl = document.querySelector("section#attr div#results");
+                resultsEl.innerHTML = `&ltp&gt checked: ${checkedAttr} - As Object: ${asObj.name}="${asObj.value}"&lt/p&gt 
+            </code></pre>
+            <h3>Toggle</h2>
+                <p>Change property</p>
+            <pre><code class="language-javascript">
+                var el = document.querySelector("div#attributes input#check1");
+                el.checked = !el.checked;
+            </code></pre>
+        </div>
+        <h3>Note</h3>
+        <ul>
+            <li>Properties are JS inhereted values from attributes (ie. class vs className)</li>
+            <li>Element properties are created from attributes only if they are standard</li>
+            <li>Depending on the element the attributes available would be different</li>
+        </ul>
+    </section>
+    <section id="value">
+        <h2>$(...).val()</h3>
+        <h3>Description</h3>
+        <span>Get the current value of the first matched element OR set the value.</span>
+        <div class="content">
+            First name: <input type="text" name="fname" placeholder="Enter Name"><br>
+            Last name: <input type="text" name="lname" value="Wayne">
+        </div>
+        <button id="btn-set-value" onclick="utils.value().set()">Set new Value</button>
+        <div class="results">
+            
+        </div>
+        <div>
+            <pre><code class="language-javascript">
+                var contentEl = document.querySelector("section#value div.content");
+                var lnameValue = contentEl.querySelector("input[name='lname']").value;
+        
+                var resultsEl = document.querySelector("section#value div.results");
+                resultsEl.innerHTML = `&ltp&gtLast name = ${lnameValue}&lt/p&gt`;
+                </code></pre>
+            </div>
+        <h3>Notes</h3>
+        <ul>
+            <li>Notice when setting random value it overrides completely. Try entering something for first name, then click on 'Set new value'</li>
+        </ul>
+    </section>
+    <section id="event-on">
+        <h2>$(...).on() | $(...).off()</h2>
+        <h3>Description</h3>
+        <span>Attach event handler to one or more elements. Or Remove event handler.</span>
+        <div class="content">
+            <input id="check-event" type="checkbox" checked="checked">
+            <label for="check-event">Check me (using event)</label>
+            <button id="btn-check-event">Toggle</button>
+            <button id="btn-check-event-on">Turn On Toggle Event</button>
+            <button id="btn-check-event-off">Turn Off Toggle Event</button>
+        </div>
+        <div class="results">
+            <pre><code>
+                var inputEl = document.getElementById("check-event");
+                var toggleBtn = document.getElementById("btn-check-event");
+
+                var toggleFunction = function(){
+                    inputEl.checked = !inputEl.checked;
+                }
+
+                document.getElementById("btn-check-event-on").addEventListener("click", function(evt){
+                    toggleBtn.addEventListener("click", toggleFunction);
+                });
+
+                document.getElementById("btn-check-event-off").addEventListener("click", function(evt){
+                    if (toggleBtn.removeEventListener) {                   // For all major browsers, except IE 8 and earlier
+                        toggleBtn.removeEventListener("click", toggleFunction);
+                    } else if (toggleBtn.detachEvent) {                    // For IE 8 and earlier versions
+                        toggleBtn.detachEvent("click", toggleFunction)
+                    }
+                });
+            </code></pre>
+        </div>
+        <h3>Notes</h3>
+        <ul>
+            <li>Element must exist by the time code is instantiated or event wont be attached.</li>
+            <li>When removing event listener, the function reference has to be the same. Inline anonymous function will not work, since reference is different.</li>
+            <li>Unlike jQuery, for removing event you have to specify which event you want to remove. In jQuery no arguments would remove all, this case has to be handled manually.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>$(...).toggle()</h2>
+        <h3>Description</h3>
+        <span>Toggle display (display or hide) on matched elements.</span>
+        <div class="content">
+            <button id="toggle-image-visibility">Toggle Image Display</button>
+            <button id="toggle-image-display">Toggle Image Display</button>
+            <div id="image-to-toggle">
+                <img src="http://placekitten.com/200/300" alt="Kitty Image">
+            </div>
+            <div>
+                <p>Element Below Image!</p>
+            </div>
+        </div>
+        <div class="results">
+            <pre><code>
+                var imgEl = document.querySelector("#image-to-toggle img");
+                document.getElementById("toggle-image-visibility").addEventListener("click", function(evt){
+                    if(imgEl.style.visibility && imgEl.style.visibility === "hidden"){
+                        imgEl.style.visibility = "initial";
+                    } else {
+                        imgEl.style.visibility = "hidden";
+                    }
+                });
+        
+                document.getElementById("toggle-image-display").addEventListener("click", function(evt){
+                    if(imgEl.style.display && imgEl.style.display === "none"){
+                        imgEl.style.display = "initial";
+                    } else {
+                        imgEl.style.display = "none";
+                    }
+                });
+            </code></pre>
+        </div>
+        <h3>Notes</h3>
+        <ul>
+            <li>Element must exist by the time code is instantiated or event wont be attached.</li>
+            <li>You can either use 'visbility' (doesn't affect layout) attribute or 'display'(affects layout).</li>
+            <li>This does not handle animation that jQuery does as an additional feature. But that can easily be done with plain old CSS.</li>
+        </ul>
+    </section>
+    <!-- main script-->
+    <script src="main.js"></script>
+</body>
+
+</html>
