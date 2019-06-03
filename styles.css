@@ -1,6 +1,8 @@
 /*
 https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=263238&secondary.color=FF5722&primary.text.color=FFCA28&secondary.text.color=FFCC80
 
+white: #b9b9b9
+
 Background
     primary: #263238
         light: #4f5b62
@@ -15,6 +17,10 @@ Background
 Text
     on primary: #ffca28
     on secondary: #ffcc80
+
+    font
+    font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'IBM Plex Mono', monospace;
 */
 
 /*----------------------------------------------------------*/
@@ -32,7 +38,7 @@ body {
     background-color: #4f5b62;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    color: #ffffff;
+    color: #b9b9b9;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     word-spacing: .05em;
@@ -42,7 +48,6 @@ body {
 h1,
 h2,
 h3 {
-    color: #ffca28;
     text-transform: uppercase;
     font-weight: 300;
     letter-spacing: 1px;
@@ -50,6 +55,11 @@ h3 {
 
 ul {
     padding: 10px 25px;
+}
+
+header h2 {
+    background-color: #000a12;
+    padding: 10px;
 }
 
 
@@ -62,6 +72,13 @@ section {
     border-radius: 5px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
     margin-bottom: 20px;
+}
+
+section header h2{
+    color: #ffcc80;
+}
+
+section div.content {
     padding: 20px;
 }
 
@@ -84,6 +101,11 @@ section {
 
 pre {
     margin: 40px 0;
+}
+
+pre code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9em;
 }
 
 /* pre {

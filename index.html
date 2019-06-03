@@ -5,23 +5,28 @@
     <title>Jquery to Plain JS</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|IBM+Plex+Mono|IBM+Plex+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <section>
-        <h2>$(document).ready(..)</h2>
-        <h3>Description</h3>
-        <span>Check when document has been loaded.</span>
-        <div class="results">
-            <pre><code>
+        <header>
+            <h2>$(document).ready(..)</h2>
+        </header>
+        <div class="content">
+            <h3>Description</h3>
+            <span>Check when document has been loaded.</span>
+            <div class="results">
+                <pre><code>
 if(document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)){
     // call your functions here
 } else {
     // call your functions here
 }
-            </code></pre>
+                </code></pre>
+            </div>
         </div>
+        
     </section>
     <section id="html">
         <h2>$(...).HTML()</h2>
