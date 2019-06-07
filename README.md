@@ -3,6 +3,13 @@
 ### These are so simple that there is no need to import a huge library. Just Keeping It Simple!
 
 1. $(document).ready(..)
+```javascript
+if(document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)){
+    // call your functions here
+} else {
+    // call your functions here
+}
+```
 2. $(...).HTML()
 3. $(...).Append
 4. $(...).prepend()
