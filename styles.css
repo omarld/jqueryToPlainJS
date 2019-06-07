@@ -112,7 +112,51 @@ pre code {
     font-size: 0.9em;
 }
 
+/* button */
+button {
+    display: inline-block;
+    padding: 10px;
+    font-size: 0.7em;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #ff5722;
+    border: 0;
+    border-radius: 5px;
+    color: #000000;
+    font-weight: 600;
+    -webkit-transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
+    margin: 5px;
+}
+
+button:hover {
+    background-color:#ff8159;
+    border-color: tansparent;
+}
+
+button:active {
+    background-color: #de3500;
+    border-color: tansparent;
+}
+
+button:focus {
+    outline:0;
+}
+
 /* pre {
     white-space: pre-line;
 } */
 
+/* UTILS */
+
+.tab { 
+    margin: 10px 40px; 
+}
+
+.tab-left { 
+    margin-left: 40px; 
+}
+
+.accent-color {
+    color: #cb7832;
+}

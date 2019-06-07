@@ -77,9 +77,9 @@ var utils = {
         var asObj = el.getAttributeNode("checked");
     
         var resultsEl = document.querySelector("section#attr div.results");
-        resultsEl.innerHTML = `<p> checked: ${checkedAttr} - As Object: ${asObj.name}="${asObj.value}"</p> 
-        <div>
-            <p>Can also use 'el.checked' to check for binded property : ${el.checked}</p>
+    resultsEl.innerHTML = `<p class="tab"> initial checked attribute: <span class="accent-color">${checkedAttr}</span> - As Object: {${asObj.name}="${asObj.value}}"</p> 
+        <div class="tab">
+            <p>Can also use 'el.checked' to check for binded property: ${el.checked}</p>
         </div>
         `;
     },

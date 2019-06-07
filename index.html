@@ -38,8 +38,8 @@ if(document.readyState === "complete" || (document.readyState !== "loading" && !
 
             <div class="results">
                 <h3>Example</h3>
-                <p class="retrieve">Who is afraid of the bats?!</p>
-                <span>Copied Content: <p class="sample"></p></span>    
+                Source<p class="retrieve tab">Who is afraid of the bats?!</p>
+                Target <p class="sample tab"></p>    
             </div>
 
             <h3>Plain JS Code</h3>
@@ -87,7 +87,8 @@ appendEl.appendChild(childEl);
             <h3>Description</h3>
             <span>Insert content to the start of each mathing element</span>
             <h3>Example</h3>
-            <p id="existing">Exising content in body!</p>
+            Target
+            <p id="existing" class="tab">Existing content in body!</p>
             <div class="results"></div>
             <div>
                 <h3>Plain JS Code</h3>
@@ -117,7 +118,6 @@ prependEl.insertBefore(newDiv, prependEl.firstChild);
             <div class="empty-buttons">
                 <button id="clear-me" onclick="utils.emptyContent()">Empty Content</button>
                 <button id="clear-me" onclick="utils.resetEmptyContent()">Reset</button>
-                <p>NOTE: add remove listener</p>
             </div>
             <div class="results">
             </div>
@@ -132,13 +132,7 @@ while(contentEl.firstChild){
 }
                 </code></pre>
             </div>
-            <h3>Notes</h3>
-            <ul>
-                <li>add remove listener.</li>
-            </ul>
         </div>
-        
-        
     </section>
 
     <section id="attr">
@@ -165,8 +159,7 @@ var resultsEl = document.querySelector("section#attr div#results");
 resultsEl.innerHTML = `&ltp&gt checked: ${checkedAttr} - As Object: ${asObj.name}="${asObj.value}"&lt/p&gt 
 
                 </code></pre>
-                <h3>Toggle</h3>
-                    <p>Change property</p>
+                <h3>Toggle Plain JS Code</h3>
                 <pre><code class="language-javascript">
 var el = document.querySelector("div#attributes input#check1");
 el.checked = !el.checked;
@@ -223,8 +216,8 @@ resultsEl.innerHTML = `&ltp&gtLast name = ${lnameValue}&lt/p&gt`;
             <h3>Example</h3>
             <input id="check-event" type="checkbox" checked="checked">
             <label for="check-event">Check me (using event)</label>
-            <button id="btn-check-event">Toggle</button>
             <button id="btn-check-event-on">Turn On Toggle Event</button>
+            <button id="btn-check-event">Toggle</button>
             <button id="btn-check-event-off">Turn Off Toggle Event</button>
             <div class="results"></div>
             <div>
@@ -268,7 +261,7 @@ document.getElementById("btn-check-event-off").addEventListener("click", functio
             <h3>Description</h3>
             <span>Toggle display (display or hide) on matched elements.</span>
             <h3>Example</h3>
-            <button id="toggle-image-visibility">Toggle Image Display</button>
+            <button id="toggle-image-visibility">Toggle Image Visibility</button>
             <button id="toggle-image-display">Toggle Image Display</button>
             <div id="image-to-toggle">
                 <img src="http://placekitten.com/200/300" alt="Kitty Image">
