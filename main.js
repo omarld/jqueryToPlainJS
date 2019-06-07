@@ -32,14 +32,14 @@ var utils = {
         this.toggleImageDisplay();
     },
     getHtml : function(){
-        var content = document.querySelector("div#html-content p").innerHTML;
-        document.querySelector("div#results p").innerHTML = content;
+        var content = document.querySelector("section#html div.content p.retrieve").innerHTML;
+        document.querySelector("section#html div.results p.sample").innerHTML = content;
         //NOTE on inserting script tag .. in jQuery you need to use .text() instead.
         // for plain JS you need to create an script element and append, more on this later.
     },
     
     appendResults : function(){
-        var appendEl = document.querySelector("div#append-content");
+        var appendEl = document.querySelector("section#append div.content div.results");
         var childEl = document.createElement("div");
         childEl.innerHTML = "<p>New <strong>child</strong> Content!</p>"
     
@@ -48,17 +48,17 @@ var utils = {
     },
     
     prependResults: function(){
-        var prependEl = document.getElementById("prepend-content");
+        var prependEl = document.querySelector("section#prepend div.content p#existing");
     
         var newDiv = document.createElement("div");
-        var textNode = document.createTextNode("new content to insert!");
+        var textNode = document.createTextNode("new content to inserted!");
         newDiv.appendChild(textNode);
     
         prependEl.insertBefore(newDiv, prependEl.firstChild);
     },
     
     emptyContent: function(){
-        var contentEl = document.getElementById("empty-content");
+        var contentEl = document.getElementById("empty-me");
         console.log("empty content");
         contentEl.innerHtml = "";
         while(contentEl.firstChild){
@@ -67,7 +67,7 @@ var utils = {
     },
     
     resetEmptyContent: function(){
-        var contentEl = document.getElementById("empty-content");
+        var contentEl = document.getElementById("empty-me");
         contentEl.innerHTML = "<p>Empty me please!</p>"
     },
     

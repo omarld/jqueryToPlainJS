@@ -75,13 +75,17 @@ section {
 }
 
 section header h2{
-    color: #ffcc80;
+    color: #ff8a50;
 }
 
 section div.content {
     padding: 20px;
 }
 
+div.content h3 {
+    color: #ffcc80;
+    line-height: 2em;
+}
 /*
     Code
 */
@@ -100,7 +104,7 @@ section div.content {
 }
 
 pre {
-    margin: 40px 0;
+    margin: 0 0 20px;
 }
 
 pre code {
